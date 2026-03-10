@@ -3,11 +3,7 @@
 import shlex
 import sys
 
-try:
-    import readline  # noqa: F401
-except ImportError:
-    readline = None
-
+from cli_terminal import terminal
 import config_data as config
 from knowledge_base_registry import get_knowledge_base_label, get_knowledge_base_names, normalize_knowledge_base_name
 from rag import RAGService
@@ -73,7 +69,7 @@ def run_chat_loop(initial_knowledge_base, session_id):
 
     while True:
         try:
-            prompt = input(f"\n你[{knowledge_base_name}]: ").strip()
+            prompt = terminal.prompt(f"\n你[{knowledge_base_name}]: ")
         except (EOFError, KeyboardInterrupt):
             print("\n已退出对话。")
             return 0

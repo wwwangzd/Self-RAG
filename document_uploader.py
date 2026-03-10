@@ -9,6 +9,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 if CURRENT_DIR not in sys.path:
     sys.path.insert(0, CURRENT_DIR)
 
+from cli_terminal import terminal
 import config_data as config
 from document_importer import ensure_knowledge_base, import_documents, list_knowledge_bases
 from knowledge_base_registry import normalize_knowledge_base_name
@@ -105,7 +106,7 @@ def run_interactive_shell(default_knowledge_base):
 
     while True:
         try:
-            command_text = input(f"\nimport[{current_knowledge_base}]> ").strip()
+            command_text = terminal.prompt(f"\nimport[{current_knowledge_base}]> ")
         except (EOFError, KeyboardInterrupt):
             print("\n已退出导入模式。")
             return 0

@@ -5,3 +5,4 @@ langchain-text-splitters
 chromadb
 dashscope
 pypdf
+prompt_toolkit
