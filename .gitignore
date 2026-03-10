@@ -1,0 +1,13 @@
+.DS_Store
+.vscode/
+__pycache__/
+*.pyc
+
+chat_history/
+chroma_db/
+md5/
+knowledge_bases.json
+
+.env
+.env.*
+
